@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Наташин итальянский маршрут</title>
+  <meta name="description" content="Красивая страница по мотивам маршрута Наташи по Италии: дорога из Праги, собака, парковки, апартаменты и южное настроение." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,500..800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #222222;
+      --muted: #6a6a6a;
+      --paper: #fffaf5;
+      --card: #ffffff;
+      --red: #ff385c;
+      --red-dark: #df1b47;
+      --olive: #50623a;
+      --sand: #f4e4d2;
+      --sun: #f6b85b;
+      --sea: #72b7c8;
+      --shadow: rgba(0,0,0,0.02) 0 0 0 1px, rgba(0,0,0,0.04) 0 2px 6px, rgba(0,0,0,0.10) 0 12px 32px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(255,56,92,.18), transparent 28rem),
+        radial-gradient(circle at 92% 20%, rgba(114,183,200,.25), transparent 30rem),
+        linear-gradient(180deg, #fff 0%, var(--paper) 48%, #fff4e5 100%);
+    }
+    a { color: inherit; }
+    .nav {
+      position: sticky; top: 0; z-index: 20;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 18px; padding: 18px clamp(18px, 4vw, 64px);
+      background: rgba(255,255,255,.78); backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(34,34,34,.08);
+    }
+    .brand { display:flex; align-items:center; gap:10px; font-weight: 850; letter-spacing:-.03em; }
+    .brand-dot { width: 34px; height: 34px; border-radius: 50%; background: var(--red); display:grid; place-items:center; color:#fff; box-shadow: 0 8px 20px rgba(255,56,92,.32); }
+    .nav-links { display:flex; align-items:center; gap: 8px; flex-wrap: wrap; justify-content:flex-end; }
+    .nav-links a { text-decoration:none; padding: 10px 13px; border-radius: 999px; color: #484848; font-size: 14px; font-weight: 700; }
+    .nav-links a:hover { background: #f2f2f2; }
+    .hero {
+      min-height: 86vh; display:grid; grid-template-columns: 1.05fr .95fr; align-items:center; gap: clamp(28px, 6vw, 76px);
+      padding: clamp(48px, 8vw, 110px) clamp(18px, 6vw, 90px) 42px;
+      max-width: 1440px; margin: 0 auto;
+    }
+    .eyebrow { display:inline-flex; align-items:center; gap:9px; padding: 9px 13px; border-radius: 999px; background:#fff; box-shadow: var(--shadow); color: var(--red-dark); font-weight:800; font-size: 14px; }
+    h1 { margin: 24px 0 18px; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(46px, 7vw, 104px); line-height: .9; letter-spacing: -.055em; max-width: 840px; }
+    .lead { font-size: clamp(18px, 2.2vw, 25px); line-height: 1.55; color: #414141; max-width: 720px; margin: 0 0 30px; }
+    .actions { display:flex; gap: 12px; flex-wrap: wrap; }
+    .button { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height: 50px; padding: 0 20px; border-radius: 999px; font-weight: 850; text-decoration:none; box-shadow: var(--shadow); }
+    .button.primary { background: var(--ink); color:#fff; }
+    .button.red { background: var(--red); color:#fff; }
+    .button.ghost { background:#fff; color:var(--ink); }
+    .hero-card {
+      position: relative; border-radius: 34px; overflow:hidden; min-height: 640px; box-shadow: 0 28px 80px rgba(75,49,25,.18);
+      background: linear-gradient(160deg, #f5c875 0%, #e6815c 50%, #284f62 100%);
+      isolation: isolate;
+    }
+    .hero-card::before { content:""; position:absolute; inset:0; background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.34), transparent 19rem), linear-gradient(180deg, transparent 0%, rgba(0,0,0,.44) 100%); z-index:1; }
+    .sun { position:absolute; width:170px; height:170px; border-radius:50%; background:#ffd37b; right:36px; top:46px; box-shadow: 0 0 70px rgba(255,211,123,.8); }
+    .road { position:absolute; left:0; right:0; bottom:0; height: 45%; background: linear-gradient(170deg, transparent 0 28%, rgba(34,34,34,.14) 28% 32%, rgba(255,250,245,.72) 32%); transform: skewY(-5deg); transform-origin:left bottom; }
+    .town { position:absolute; inset:auto 0 110px 0; height: 220px; background: linear-gradient(to top, rgba(255,255,255,.9), rgba(255,255,255,.2)); clip-path: polygon(0 70%,8% 58%,13% 65%,19% 45%,25% 60%,31% 35%,38% 62%,44% 44%,50% 62%,57% 36%,64% 58%,70% 40%,76% 60%,84% 44%,90% 62%,100% 47%,100% 100%,0 100%); opacity:.88; }
+    .trip-note { position:absolute; z-index:2; left:28px; right:28px; bottom:28px; padding:24px; border-radius:26px; background: rgba(255,255,255,.86); backdrop-filter: blur(18px); box-shadow: var(--shadow); }
+    .trip-note h2 { margin:0 0 8px; font-size: 24px; letter-spacing:-.03em; }
+    .trip-note p { margin:0; color: var(--muted); line-height:1.5; }
+    .floating { position:absolute; z-index:2; display:flex; align-items:center; gap:9px; padding: 12px 14px; border-radius:999px; background:#fff; box-shadow: var(--shadow); font-weight:850; }
+    .float-dog { left: 24px; top: 30px; }
+    .float-parking { right: 28px; top: 240px; }
+    .section { max-width: 1180px; margin: 0 auto; padding: 72px clamp(18px,4vw,42px); }
+    .section-title { display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom: 26px; }
+    .section-title h2 { margin:0; font-family:'Playfair Display', Georgia, serif; font-size: clamp(34px, 4vw, 58px); letter-spacing:-.045em; line-height:.98; }
+    .section-title p { margin:0; max-width: 470px; color:var(--muted); line-height:1.55; }
+    .grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { background: var(--card); border-radius: 26px; box-shadow: var(--shadow); padding: 24px; min-height: 180px; position:relative; overflow:hidden; }
+    .card strong { display:block; font-size: 20px; letter-spacing:-.03em; margin-bottom: 8px; }
+    .card p { margin:0; color:var(--muted); line-height:1.55; }
+    .tag { display:inline-flex; align-items:center; gap:8px; color: var(--red-dark); background:#fff0f3; border-radius:999px; padding:7px 10px; font-size: 13px; font-weight:850; margin-bottom: 16px; }
+    .route { display:grid; grid-template-columns: 330px 1fr; gap: 22px; align-items:start; }
+    .route-aside { position: sticky; top: 92px; background:#222; color:#fff; border-radius:30px; padding:28px; box-shadow: 0 22px 60px rgba(0,0,0,.16); }
+    .route-aside h3 { margin:0 0 12px; font-size:28px; letter-spacing:-.04em; }
+    .route-aside p { margin:0 0 18px; color:#ddd; line-height:1.5; }
+    .metric { display:flex; justify-content:space-between; gap:14px; padding:13px 0; border-top:1px solid rgba(255,255,255,.15); }
+    .metric span:first-child { color:#bbb; }
+    .timeline { display:grid; gap:12px; }
+    .stop { display:grid; grid-template-columns: 78px 1fr auto; gap:16px; align-items:center; background:#fff; border-radius:24px; padding:14px; box-shadow: var(--shadow); }
+    .day { width:64px; height:64px; border-radius:20px; background: #fff0f3; color:var(--red-dark); display:grid; place-items:center; font-weight:900; line-height:1.05; text-align:center; }
+    .stop h3 { margin:0 0 4px; font-size:20px; letter-spacing:-.03em; }
+    .stop p { margin:0; color:var(--muted); line-height:1.42; }
+    .km { color:var(--olive); font-weight:900; white-space:nowrap; }
+    .stay-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:14px; }
+    .stay { display:flex; gap:14px; align-items:flex-start; background:#fff; border-radius:22px; padding:16px; box-shadow: var(--shadow); }
+    .pin { flex:0 0 auto; width:42px; height:42px; display:grid; place-items:center; border-radius:15px; background:#f8f0e7; }
+    .stay h3 { margin:0 0 5px; font-size:17px; letter-spacing:-.025em; }
+    .stay p { margin:0; color:var(--muted); line-height:1.45; font-size:14px; }
+    .map-links { display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; }
+    .night { display:grid; grid-template-columns: .9fr 1.1fr; gap: 24px; align-items:center; background:#151827; color:#fff; border-radius:36px; overflow:hidden; box-shadow: 0 24px 70px rgba(21,24,39,.26); }
+    .night img { width:100%; height:100%; min-height:460px; object-fit:cover; display:block; }
+    .night-copy { padding: clamp(28px, 5vw, 54px); }
+    .night-copy h2 { margin:0 0 14px; font-family:'Playfair Display', Georgia, serif; font-size: clamp(38px, 5vw, 70px); line-height:.95; letter-spacing:-.05em; }
+    .night-copy p { color:#d9dbe7; font-size:18px; line-height:1.6; }
+    .letter { background:#fff; border-radius:36px; padding: clamp(28px, 5vw, 56px); box-shadow: var(--shadow); }
+    .letter p { font-size:20px; line-height:1.75; color:#414141; margin:0 0 18px; }
+    .signature { font-family:'Playfair Display', Georgia, serif; font-size:34px; color:var(--red-dark); margin-top: 18px; }
+    footer { padding: 34px 18px 56px; text-align:center; color:var(--muted); }
+    @media (max-width: 980px) {
+      .hero, .route, .night { grid-template-columns: 1fr; }
+      .hero-card { min-height: 520px; }
+      .route-aside { position:relative; top:auto; }
+      .grid, .stay-grid { grid-template-columns: 1fr; }
+      .section-title { display:block; }
+      .section-title p { margin-top:12px; }
+    }
+    @media (max-width: 620px) {
+      .nav { align-items:flex-start; flex-direction:column; }
+      .hero { padding-top: 34px; }
+      .stop { grid-template-columns: 58px 1fr; }
+      .day { width:52px; height:52px; border-radius:16px; font-size:13px; }
+      .km { grid-column: 2; }
+      .night img { min-height: 320px; }
+      .float-parking { display:none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand"><span class="brand-dot">✦</span><span>Для Наташи</span></div>
+    <div class="nav-links">
+      <a href="#route">Маршрут</a>
+      <a href="#stays">Жильё</a>
+      <a href="#night">Спокойной ночи</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <div class="eyebrow">🚗 Прага → Италия → море → обратно</div>
+      <h1>Наташин маршрут, где всё красиво и с собакой</h1>
+      <p class="lead">Страница по мотивам вашего сегодняшнего планирования: не банальные Рим-Милан-Венеция, а Болонья, Равенна, Урбино, Умбрия, Матера и Апулия — с парковками, апартаментами и нормальным темпом для дороги.</p>
+      <div class="actions">
+        <a class="button red" href="#route">Посмотреть маршрут</a>
+        <a class="button ghost" href="#night">Открытка на ночь</a>
+      </div>
+    </div>
+    <div class="hero-card" aria-label="Итальянская дорога на закате">
+      <div class="sun"></div>
+      <div class="town"></div>
+      <div class="road"></div>
+      <div class="floating float-dog">🐕 dog-friendly</div>
+      <div class="floating float-parking">🅿️ parking first</div>
+      <div class="trip-note">
+        <h2>Главная идея</h2>
+        <p>Красивая Италия без толпы, с уютными городами, каменными улочками, морем в конце и ночёвками, где можно спокойно приехать на машине.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="section-title">
+      <h2>Что в этом путешествии важно</h2>
+      <p>Я собрала не просто точки на карте, а настроение поездки: ехать красиво, не мучиться с багажом и собакой, выбирать жильё практично.</p>
+    </div>
+    <div class="grid">
+      <article class="card"><span class="tag">🐶 собака</span><strong>Жильё должно быть pet-friendly</strong><p>Никаких “ой, нельзя с собакой” в последний момент. Это один из главных фильтров.</p></article>
+      <article class="card"><span class="tag">🅿️ машина</span><strong>Парковка обязательна</strong><p>Маршрут из Праги длинный, поэтому парковка важнее красивого описания отеля.</p></article>
+      <article class="card"><span class="tag">🏡 уют</span><strong>Лучше апартаменты</strong><p>Апартаменты, домики, кухня, больше свободы — особенно в поездке на две недели.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="route">
+    <div class="section-title">
+      <h2>Маршрут на две недели</h2>
+      <p>Полная версия до Апулии получается примерно 3 900 км “чистой” дороги, а реально с заездами — около 4 200–4 500 км.</p>
+    </div>
+    <div class="route">
+      <aside class="route-aside">
+        <h3>Цифры поездки</h3>
+        <p>Юг Италии прекрасный, но обратный путь лучше делить минимум на два дня.</p>
+        <div class="metric"><span>Даты</span><strong>15–30 октября</strong></div>
+        <div class="metric"><span>Ночей</span><strong>15</strong></div>
+        <div class="metric"><span>Дорога</span><strong>~3 900 км</strong></div>
+        <div class="metric"><span>Темп</span><strong>город + отдых</strong></div>
+      </aside>
+      <div class="timeline">
+        <div class="stop"><div class="day">1–2</div><div><h3>Болонья</h3><p>Старт Италии: портики, паста, тёплый город без лишней суеты.</p></div><div class="km">Прага → 944 км</div></div>
+        <div class="stop"><div class="day">3</div><div><h3>Равенна</h3><p>Мозаики, спокойный ритм и короткий переезд после Болоньи.</p></div><div class="km">70 км</div></div>
+        <div class="stop"><div class="day">4–5</div><div><h3>Урбино / Марке</h3><p>Холмы, средневековые виды, Gradara или Pesaro по настроению.</p></div><div class="km">122 км</div></div>
+        <div class="stop"><div class="day">6–7</div><div><h3>Ассизи, Спелло, Перуджа</h3><p>Умбрия: камень, оливки, спокойные прогулки и мягкий свет.</p></div><div class="km">107 км</div></div>
+        <div class="stop"><div class="day">8</div><div><h3>Орвието + Civita</h3><p>Красивый мостик в сказочный город и хороший переход к югу.</p></div><div class="km">92 км</div></div>
+        <div class="stop"><div class="day">9–10</div><div><h3>Матера</h3><p>Самая киношная точка маршрута: каменные Sassi, вечерние огни.</p></div><div class="km">539 км</div></div>
+        <div class="stop"><div class="day">11–12</div><div><h3>Лечче + Otranto / Gallipoli</h3><p>Барокко, море, южная Италия и чуть больше отдыха.</p></div><div class="km">211 км</div></div>
+        <div class="stop"><div class="day">13</div><div><h3>Остуни, Alberobello, Locorotondo</h3><p>Белые города, трулли и открытки в реальной жизни.</p></div><div class="km">106 км</div></div>
+        <div class="stop"><div class="day">14–15</div><div><h3>Polignano a Mare / Monopoli / Bari</h3><p>Финал у моря перед большой дорогой домой.</p></div><div class="km">50 км + домой</div></div>
+      </div>
+    </div>
+    <div class="map-links">
+      <a class="button primary" href="https://www.google.com/maps/dir/?api=1&origin=Prague%2C+Czech+Republic&destination=Prague%2C+Czech+Republic&travelmode=driving&waypoints=Bologna%2C+Italy%7CRavenna%2C+Italy%7CUrbino%2C+Italy%7CAssisi%2C+Italy%7COrvieto%2C+Italy%7CMatera%2C+Italy%7CLecce%2C+Italy%7COstuni%2C+Italy%7CPolignano+a+Mare%2C+Italy%7CBari%2C+Italy" target="_blank" rel="noreferrer">Открыть полный маршрут</a>
+      <a class="button ghost" href="https://www.google.com/maps/dir/?api=1&origin=Prague%2C+Czech+Republic&destination=Orvieto%2C+Italy&travelmode=driving&waypoints=Bologna%2C+Italy%7CRavenna%2C+Italy%7CUrbino%2C+Italy%7CAssisi%2C+Italy" target="_blank" rel="noreferrer">Часть 1</a>
+      <a class="button ghost" href="https://www.google.com/maps/dir/?api=1&origin=Orvieto%2C+Italy&destination=Polignano+a+Mare%2C+Italy&travelmode=driving&waypoints=Matera%2C+Italy%7CLecce%2C+Italy%7COstuni%2C+Italy" target="_blank" rel="noreferrer">Часть 2</a>
+      <a class="button ghost" href="https://www.google.com/maps/dir/?api=1&origin=Polignano+a+Mare%2C+Italy&destination=Prague%2C+Czech+Republic&travelmode=driving&waypoints=Bari%2C+Italy" target="_blank" rel="noreferrer">Часть 3</a>
+    </div>
+  </section>
+
+  <section class="section" id="stays">
+    <div class="section-title">
+      <h2>Черновик жилья</h2>
+      <p>По мотивам вашего поиска: собака, парковка, апартаменты/дом, около 100 € за ночь. Перед бронированием лучше финально проверить условия отмены и питомца.</p>
+    </div>
+    <div class="stay-grid">
+      <div class="stay"><div class="pin">🍝</div><div><h3>Болонья — Panigale90</h3><p>15–17.10 · 2 ночи · примерно 161 €</p></div></div>
+      <div class="stay"><div class="pin">🧩</div><div><h3>Равенна — Gold house</h3><p>17–18.10 · 1 ночь · примерно 98 €</p></div></div>
+      <div class="stay"><div class="pin">🏰</div><div><h3>Урбино — A casa di Matisse</h3><p>18–20.10 · 2 ночи · примерно 177 €</p></div></div>
+      <div class="stay"><div class="pin">🌿</div><div><h3>Ассизи — Dimora della saggina</h3><p>20–22.10 · 2 ночи · примерно 154 €</p></div></div>
+      <div class="stay"><div class="pin">🌉</div><div><h3>Орвието/Civita — Luce su Civita</h3><p>22–23.10 · 1 ночь · примерно 86 €</p></div></div>
+      <div class="stay"><div class="pin">🪨</div><div><h3>Матера — La Finestra sui Sassi</h3><p>23–25.10 · 2 ночи · примерно 134 €</p></div></div>
+      <div class="stay"><div class="pin">☀️</div><div><h3>Лечче — MaMà Suite</h3><p>25–27.10 · 2 ночи · примерно 138 €</p></div></div>
+      <div class="stay"><div class="pin">🏖️</div><div><h3>Остуни / Polignano / Bari</h3><p>Финальные ночи у моря · общий черновик около 246 €</p></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="night">
+    <div class="night">
+      <img src="./good-night-shiba.png" alt="Шиба-ину желает Наташе спокойной ночи" />
+      <div class="night-copy">
+        <h2>И отдельное спокойной ночи</h2>
+        <p>Потому что после таких маршрутов надо не только считать километры, но и красиво отдыхать. Шиба-ину уже всё понял: завтра можно снова мечтать про Италию.</p>
+        <a class="button red" href="./good-night-shiba.png" download>Скачать открытку</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="letter">
+      <p>Наташа, Тимур попросил меня сделать тебе красивую страницу по мотивам вашего сегодняшнего разговора про путешествие — поэтому я собрала маршрут, жильё, собаку, парковки и немного южно-итальянской мечты в одно место.</p>
+      <p>Пусть поездка получится лёгкой, вкусной и без “где тут припарковаться?” каждые десять минут.</p>
+      <div class="signature">Спокойной ночи ✨</div>
+    </div>
+  </section>
+
+  <footer>Сделано Hermes по просьбе Тимура · GitHub Pages</footer>
+</body>
+</html>

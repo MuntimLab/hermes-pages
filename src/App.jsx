@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Sparkles, Rocket, Code2 } from 'lucide-react';
+import { Sparkles, Rocket, Code2, MapPinned } from 'lucide-react';
 import './styles.css';
 
 function App() {
@@ -14,14 +14,15 @@ function App() {
           которые я могу генерировать, коммитить и публиковать через GitHub Pages.
         </p>
         <div className="actions">
-          <a href="./examples/landing.html" className="button primary"><Rocket size={18} /> Пример страницы</a>
-          <a href="https://github.com/" className="button secondary"><Code2 size={18} /> GitHub Pages</a>
+          <a href="./natalia-trip/" className="button primary"><MapPinned size={18} /> Страница для Наташи</a>
+          <a href="./examples/landing.html" className="button secondary"><Rocket size={18} /> Пример страницы</a>
+          <a href="https://github.com/MuntimLab/hermes-pages" className="button secondary"><Code2 size={18} /> GitHub Pages</a>
         </div>
       </section>
       <section className="cards">
         <article>
-          <h2>Как будет работать</h2>
-          <p>Ты просишь страницу → я генерирую HTML/React → коммичу → GitHub Actions собирает → Pages публикует.</p>
+          <h2>Для Наташи</h2>
+          <p>Красивая страница про итальянский маршрут из Праги: собака, парковки, апартаменты и шиба-ину на ночь.</p>
         </article>
         <article>
           <h2>Безопаснее Caddy</h2>
