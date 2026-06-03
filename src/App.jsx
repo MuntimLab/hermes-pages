@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Archive, ExternalLink, MapPinned, Newspaper, Sparkles, Wand2 } from 'lucide-react';
+import { Archive, ExternalLink, MapPinned, Newspaper, ShoppingBag, Sparkles, Wand2 } from 'lucide-react';
 import './styles.css';
 
 const artifacts = [
@@ -19,6 +19,14 @@ const artifacts = [
     description: 'Ежедневные широкие дайджесты: наука, AI/технологии, здоровье, климат, экономика, культура, спорт и главные мировые события.',
     icon: Newspaper,
     accent: 'blue',
+  },
+  {
+    title: 'Zalando Lounge находки',
+    href: './deals/',
+    label: 'shopping · deal archive',
+    description: 'HTML-дубликаты сильных подборок скидок: Zalando Lounge CZ, 70%+ находки, кампании и прямые ссылки на товары.',
+    icon: ShoppingBag,
+    accent: 'green',
   },
   {
     title: 'Пример landing page',
